@@ -1,0 +1,111 @@
+<div>
+    <div id="wrapper" class="preload">
+
+        <div ng-include="top_url"></div>
+
+        <div ng-include="menu_url"></div>
+
+        <div id="main-container">
+
+            <div class="main-header clearfix">
+                <div class="page-title">
+                    <h3 class="no-margin">Profile</h3>
+                </div>
+                <!-- /page-title -->
+
+                <ul class="page-stats">
+                </ul>
+                <!-- /page-stats -->
+            </div>
+            <div class="grey-container shortcut-wrapper">
+                <!-- a href="#/class" class="shortcut-link">
+                        <span class="shortcut-icon">
+                            <i class="fa fa-group"></i>
+                        </span>
+                        <span class="text">Nova Turma</span>
+                </a-->
+            </div>
+            <div class="col-md-3 col-sm-3">
+						  <div class="row">
+							<div class="col-xs-6 col-sm-12 col-md-6 text-center">
+								<a href="#">
+									<img src="{{ user.picture }}" alt="User Avatar" class="img-thumbnail">
+								</a>
+								<div class="seperator"></div>
+								<div class="seperator"></div>
+							</div><!-- /.col -->
+							<div class="col-xs-6 col-sm-12 col-md-6">
+								<strong class="font-14">{{ user.given_name }}</strong>
+								<small class="block text-muted">
+									{{ user.email }}
+								</small>
+
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+						<div class="panel">
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-xs-4 text-center">
+										<!-- span class="block font-14">301</span>
+										<small class="text-muted">Follower</small -->
+									</div><!-- /.col -->
+									<div class="col-xs-4 text-center">
+										<!-- span class="block font-14">129</span>
+										<small class="text-muted">Items</small -->
+									</div><!-- /.col -->
+									<div class="col-xs-4 text-center">
+										<!-- span class="block font-14">2731</span>
+										<small class="text-muted">Sales</small -->
+									</div><!-- /.col -->
+								</div><!-- /.row -->
+							</div>
+						</div><!-- /panel -->
+
+						<h5 class="headline">
+							Minhas Escolas
+							<span class="line"></span>
+						</h5>
+						<dl>
+							<dt ng-repeat="sch in schools">{{ sch }}<a ng-click="delSchool($index)"><i class="fa fa-trash-o"></i></a></dt>
+
+						</dl>
+                        <div class="form-group">
+                            <label>Escola:</label>
+                            <input class="form-control" type="text" ng-model="newSchools">
+                        </div>
+                        <button ng-click="addSchool()" class="btn btn-small btn-success">Adcionar</button>
+					</div>
+            <div class="col-md-9 col-sm-9">
+                <div class="panel panel-default">
+                    <form class="form-horizontal form-border">
+                        <div class="panel-heading">
+                            Informações Básicas
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label class="control-label col-md-2">Username</label>
+
+                                <div class="col-md-10">
+                                    <span>{{ user.nickname }}</span>
+                                </div>
+                                <!-- /.col -->
+                            </div>
+                            <!-- /form-group -->
+                            <div class="form-group">
+                                <label class="control-label col-md-2">Email</label>
+
+                                <div class="col-md-10">
+                                    <span>{{ user.email }}</span>
+                                </div>
+                                <!-- /.col -->
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <!-- /main-container -->
+    </div>
+    <!-- /wrapper -->
+</div>

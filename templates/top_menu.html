@@ -1,0 +1,35 @@
+<div id="top-nav" class="skin-6 fixed">
+			<div class="brand">
+				<span>SGP</span>
+				<span class="text-toggle"> App</span>
+			</div><!-- /brand -->
+			<button type="button" class="navbar-toggle pull-left" id="sidebarToggle">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<ul class="nav-notification clearfix">
+
+
+				<li class="profile dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="">
+						<strong>{{ user.nickname }}</strong>
+						<span><i class="fa fa-chevron-down"></i></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li>
+							<a class="clearfix" href="#">
+								<img src="{{ user.picture }}" alt="User Avatar">
+								<div class="detail">
+									<strong>{{ user.nickname }}</strong>
+									<p class="grey">{{ user.email }}</p>
+								</div>
+							</a>
+						</li>
+						<li><a tabindex="-1" href="#/user" class="theme-setting"><i class="fa fa-cog fa-lg"></i> Perfil</a></li>
+						<li class="divider"></li>
+						<li><a tabindex="-1" class="main-link logoutConfirm_open" href="" ng-click="logout()"><i class="fa fa-lock fa-lg"></i> Log out</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div><!-- /top-nav-->

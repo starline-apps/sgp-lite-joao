@@ -1,0 +1,74 @@
+<div class="main-container student-class">
+
+
+
+
+    <div class="main-header clearfix">
+        <div class="page-title">
+            <h3 class="no-margin">Turma</h3>
+
+        </div>
+        <!-- /page-title -->
+
+        <ul class="page-stats">
+            <li>
+                <div class="value">
+                    <span>Alunos</span>
+                    <h4><strong id="currentBalance">{{ klass.students.length }}</strong></h4>
+                </div>
+                <span id="balances" class="sparkline"><canvas width="69" height="35"
+                                                              style="display: inline-block; width: 69px; height: 35px; vertical-align: top;"></canvas></span>
+            </li>
+        </ul>
+        <!-- /page-stats -->
+    </div>
+    <div class="grey-container shortcut-wrapper">
+			<a href="" ng-click="addStudent()" class="shortcut-link">
+					<span class="shortcut-icon">
+						<i class="fa fa-plus"></i>
+					</span>
+					<span class="text">Adcionar</span>
+			</a>
+            <a href="" ng-click="save()" class="shortcut-link">
+					<span class="shortcut-icon">
+						<i class="fa fa-hdd-o"></i>
+					</span>
+					<span class="text">Salvar</span>
+				</a>
+	</div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <ng-form class="student-class-input">
+                <label>Nome:</label><input class="form-control" type="text" ng-model="klass.name">
+                    </ng-form>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="row" style="overflow-y: auto; height: 500px">
+    <div class="col-md-12">
+		<div class="panel panel-default">
+				<table class="table table-hover table-striped">
+					<thead>
+                            <th>Numero</th>
+                            <th>Nome</th>
+                            <th>Matricula</th>
+                            <th>Email</th>
+                            <th></th>
+
+					</thead>
+					<tbody>
+						 <tr student="std" num="$index" on-delete="delStudent($index)" ng-repeat="std in klass.students"></tr>
+
+					</tbody>
+				</table>
+			</div><!-- /panel -->
+		</div>
+
+
+    <br>
+    </div>
+</div>

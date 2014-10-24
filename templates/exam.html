@@ -1,0 +1,91 @@
+<div class="main-container" cg-busy="{promise:promise,message:'Aguarde...',backdrop:true}" style="overflow-y: hidden">
+    <div class="main-header clearfix">
+        <div class="page-title">
+            <h3 class="no-margin">Avaliação</h3>
+            <span><input type="text" class="form-control input-sm" ng-model="exam.name" style="width: 740px"></span>
+        </div>
+        <!-- /page-title -->
+        <button type="button"
+    ng-dialog="templates/exam_metadata.html"
+    ng-dialog-class="ngdialog-theme-plain"
+    ng-dialog-controller="ExamModalCtrl"
+    ng-dialog-scope="this"
+    ng-dialog-close-previous>
+    Avançado
+</button>
+        <ul class="page-stats">
+            <li>
+                <div class="value">
+                    <span>Questões</span>
+                    <h4 id="currentVisitor">{{ exam.questions.length }}</h4>
+                </div>
+                <span id="visits" class="sparkline"><canvas width="79" height="35"
+                                                            style="display: inline-block; width: 79px; height: 35px; vertical-align: top;"></canvas></span>
+            </li>
+            <li>
+                <div class="value">
+                    <span>Pontos</span>
+                    <h4><strong id="currentBalance">{{ exam.points }}</strong></h4>
+                </div>
+                <span id="balances" class="sparkline"><canvas width="69" height="35"
+                                                              style="display: inline-block; width: 69px; height: 35px; vertical-align: top;"></canvas></span>
+            </li>
+        </ul>
+        <!-- /page-stats -->
+    </div>
+    <div class="grey-container shortcut-wrapper">
+			<a href="" ng-click="addQuestion()" class="shortcut-link">
+					<span class="shortcut-icon">
+						<i class="fa fa-plus"></i>
+					</span>
+					<span class="text">Nova Questão</span>
+			</a>
+            <a href="" ng-click="saveExam()" class="shortcut-link">
+					<span class="shortcut-icon">
+						<i class="fa fa-hdd-o"></i>
+					</span>
+					<span class="text">Salvar</span>
+				</a>
+
+				<a href="" ng-click="publish()" class="shortcut-link">
+					<span class="shortcut-icon">
+						<i class="fa fa-legal"></i>
+					</span>
+					<span class="text">Gerar Gabarito</span>
+				</a>
+                <a ng-href="#/exam/{{exam.guid}}.json/print"  class="shortcut-link">
+					<span class="shortcut-icon">
+						<i class="fa fa-eye"></i>
+					</span>
+					<span class="text">Visualizar Impressão</span>
+				</a>
+			</div>
+    <div class="" style="overflow-y: auto; height: 500px">
+        <div class="exam">
+            <div class="panel panel-default" >
+                <div class="panel exam-body" >
+
+
+                    <ol class="exam-questions">
+
+                        <li ng-repeat="qst in exam.questions">
+                            <div class="panel-body">
+                                <div class="question-actions">
+                                    <a ng-if="$last" id="lastQuestion"></a>
+                                    <div class="action-item">
+                                        <a class="btn col-lg-offset-11" href=""
+                                           ng-click="delQuestion($index)"><i class="fa fa-trash-o"></i></a></div>
+                                </div>
+
+                                <div questioneditor number="$index+1" question="qst" points="exam.points" final="$last"></div>
+                            </div>
+
+                        </li>
+                    </ol>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

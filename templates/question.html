@@ -1,0 +1,46 @@
+<div class="question-editor">
+    <div class="question-header row">
+        <h4 class="headline col-lg-3 col-sm-3">Questão {{ number }}</h4>
+        <span class="col-lg-offset-7 col-lg-1 col-sm-1">Pontos:</span><input style="width: 65px" type="number" name="factor" ng-model="question.factor" ng-change="modelChange()"/>
+    </div>
+    <div class="question-body">
+        <!-- div class="row tag-line">
+            <label for="tags">Tags:</label><input type="text" name="tags" value="" />
+            <span class="icon-question-sign"></span>
+        </div -->
+        <div class="question-command">
+            <h4 class="headline">Enunciado
+            <span class="line"></span></h4>
+            <!-- ckeditor="editorOptions" -->
+            <textarea  ckeditor="editorOptions" ng-model="question.command" class="input-block-level" ng-change="modelChange()"></textarea>
+            <!-- select ng-model="question.type">
+                <option value="o">Objetivo</option>
+                <option value="t">Discursivo</option>
+            </select -->
+        </div>
+
+        <div class="question-answer">
+            <div class="answer-alternatives" ng-if="question.type == 'o'">
+            <h4 class="headline">Opções de resposta<span class="line"></span></h4>
+            <p>Marque a opção ques for a resposta correta.</p>
+            <ol type="A">
+                <li class="question-alternative clearfix" ng-repeat="alt in question.alternatives">
+                    <!-- span class="icon-move"></span -->
+
+                    <input style="opacity: 100; position: relative" type="checkbox" name="correct" ng-model="alt.is_correct" ng-change="modelChange()" />
+                    <textarea  style="width: 90%;" ng-model="alt.text" ng-change="modelChange()"></textarea>
+                    <br><!-- a href="#" style="margin-right: 10%; margin-left: auto">edição avançada</a -->
+                </li>
+            </ol>
+            </div>
+            <div class="text-answer-setup" ng-if="question.type == 't'">
+                <!-- Para Questoes Abertas-->
+            </div>
+        </div>
+    </div>
+
+    <!-- div class="question-footer text-center">
+        <a href="#" class="btn">Converter</a>
+        <span class="icon-question-sign"></span>
+    </div -->
+</div>

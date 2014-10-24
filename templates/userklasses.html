@@ -1,0 +1,105 @@
+<div>
+    <!-- Overlay Div>
+    <div id="overlay" class="transparent"></div -->
+
+    <!--a href="" id="theme-setting-icon"><i class="fa fa-cog fa-lg"></i></a>
+    <div id="theme-setting">
+        <div class="title">
+            <strong class="no-margin">Skin Color</strong>
+        </div>
+        <div class="theme-box">
+            <a class="theme-color" style="background:#323447" id="default"></a>
+            <a class="theme-color" style="background:#efefef" id="skin-1"></a>
+            <a class="theme-color" style="background:#a93922" id="skin-2"></a>
+            <a class="theme-color" style="background:#3e6b96" id="skin-3"></a>
+            <a class="theme-color" style="background:#635247" id="skin-4"></a>
+            <a class="theme-color" style="background:#3a3a3a" id="skin-5"></a>
+            <a class="theme-color" style="background:#495B6C" id="skin-6"></a>
+        </div>
+        <div class="title">
+            <strong class="no-margin">Sidebar Menu</strong>
+        </div>
+        <div class="theme-box">
+            <label class="label-checkbox">
+                <input type="checkbox" checked id="fixedSidebar">
+                <span class="custom-checkbox"></span>
+                Fixed Sidebar
+            </label>
+        </div>
+    </div --><!-- /theme-setting -->
+
+    <div id="wrapper" class="preload">
+
+        <div ng-include="top_url"></div>
+
+        <div ng-include="menu_url"></div>
+
+        <div id="main-container">
+
+            <div class="main-header clearfix">
+                <div class="page-title">
+                    <h3 class="no-margin">Turmas</h3>
+                </div>
+                <!-- /page-title -->
+
+                <ul class="page-stats">
+                    <li>
+                        <div class="value">
+                            <span></span>
+                            <h4><strong id="currentBalance">{{ klasses.length }}</strong></h4>
+                        </div>
+                <span id="balances" class="sparkline"><canvas width="69" height="35"
+                                                              style="display: inline-block; width: 69px; height: 35px; vertical-align: top;"></canvas></span>
+                    </li>
+                </ul>
+                <!-- /page-stats -->
+            </div>
+            <div class="grey-container shortcut-wrapper">
+                <a href="#/class" class="shortcut-link">
+					<span class="shortcut-icon">
+						<i class="fa fa-group"></i>
+					</span>
+                    <span class="text">Nova Turma</span>
+                </a>
+            </div>
+
+
+            <div class="">
+                <ul>
+                    <li ng-repeat="klass in klasses" class="col-sm-6 col-md-3">
+                        <a ng-href="#/class/{{ klass.guid }}">
+                            <div class="panel-stat3 bg-success">
+                                <h2 class="m-top-none" id="userCount">{{ klass.students.length }}</h2>
+                                <h5>Alunos</h5>
+                                <span class="m-left-xs">{{ klass.name }}</span>
+
+                                <div class="stat-icon">
+                                    <i class="fa fa-group fa-3x"></i>
+                                </div>
+
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /main-container -->
+    </div>
+    <!-- /wrapper -->
+
+    <!-- a href="" id="scroll-to-top" class="hidden-print"><i class="fa fa-chevron-up"></i></a -->
+
+    <!-- Logout confirmation >
+    <div class="custom-popup width-100" id="logoutConfirm">
+        <div class="padding-md">
+            <h4 class="m-top-none"> Do you want to logout?</h4>
+        </div>
+
+        <div class="text-center">
+            <a class="btn btn-success m-right-sm" href="login.html">Logout</a>
+            <a class="btn btn-danger logoutConfirm_close">Cancel</a>
+        </div>
+    </div -->
+</div>
+
+

@@ -1,0 +1,45 @@
+<div>
+    <div id="wrapper" class="preload">
+
+        <div ng-include="top_url"></div>
+
+        <div ng-include="menu_url"></div>
+
+        <div id="main-container">
+                <div class="text-center"><button ng-click="printDiv('printableArea');">imprimir</button></div>
+                <div class="panel panel-default" id="printableArea">
+                    <table border="1" width="100%">
+                        <tr>
+                            <td colspan="2" style="text-align: center"><h4>{{ exam.school }}</h4></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="text-align: center"><h3>{{ exam.name }}</h3></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="text-align: center"><h4>{{ exam.subject }}</h4></td>
+                        </tr>
+                        <tr>
+                            <td width="70%"><h4>Nome:</h4></td><td width="29%"></h4>data:____/____/________</h4></td>
+                        </tr>
+                    </table>
+
+                    <ol style="margin-right: 0px; padding: 0px">
+                        <li ng-repeat="question in exam.questions" style="margin-right: 0px; padding: 0px; list-style: none; margin-top: 15px;border-top: 1px solid">
+                            <p><em>Questão {{ $index+1 }}</em></p>
+                            <div ng-bind-html="question.command" ></div>
+                            <ol type="A">
+                                <li ng-repeat="alt in question.alternatives">
+                                    {{ alt.text }}
+                                </li>
+                            </ol>
+                        </li>
+                    </ol>
+                </div>
+
+        </div>
+        <!-- /main-container -->
+    </div>
+    <!-- /wrapper -->
+</div>
+
+
